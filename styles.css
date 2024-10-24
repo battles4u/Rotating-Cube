@@ -55,7 +55,6 @@ body {
   transform: rotateX(-90deg) translateZ(100px);
 }
 
-/* Shadow under the cube */
 .shadow {
   position: absolute;
   width: 220px;
