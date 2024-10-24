@@ -3,14 +3,14 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: #f0f0f0;
+  background: #f6fcdf;
   margin: 0;
 }
 
 .scene {
   width: 200px;
   height: 200px;
-  perspective: 800px; /*to add perspective*/
+  perspective: 800px;
 }
 
 .cube {
@@ -18,7 +18,8 @@ body {
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
-  transform: rotateX(-30deg) rotateY(45deg);
+  transform: rotateY(45deg) rotateX(45deg) rotateZ(45deg);
+
   animation: rotateScene 4s linear infinite;
 }
 
@@ -26,21 +27,21 @@ body {
   position: absolute;
   width: 200px;
   height: 200px;
-  background: rgba(9, 1, 41, 0.9);
+  background: #859f3d;
   border: 2px solid #fff;
   color: #fff;
 }
 
 .front {
-  transform: translateZ(100px); /*move the front to front*/
+  transform: translateZ(100px);
 }
 
 .back {
-  transform: rotateY(180deg) translateZ(100px); /*move the back face backward and rotate*/
+  transform: rotateY(180deg) translateZ(100px);
 }
 
 .left {
-  transform: rotateY(-90deg) translateZ(100px); /*rotate to the left and move to the edge*/
+  transform: rotateY(-90deg) translateZ(100px);
 }
 
 .right {
@@ -54,11 +55,32 @@ body {
   transform: rotateX(-90deg) translateZ(100px);
 }
 
+/* Shadow under the cube */
+.shadow {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  filter: blur(10px);
+
+  opacity: 0.5;
+  animation: rotateShadow 4s linear infinite;
+}
 @keyframes rotateScene {
   from {
-    transform: rotateX(-30deg) rotateY(0deg);
+    transform: rotateY(45deg) rotateX(45deg) rotateZ(45deg);
   }
   to {
-    transform: rotateX(-30deg) rotateY(360deg);
+    transform: rotateY(405deg) rotateX(45deg) rotateZ(45deg);
+  }
+}
+
+@keyframes rotateShadow {
+  from {
+    transform: rotateY(45deg) rotateX(90deg);
+  }
+  to {
+    transform: rotateY(405deg) rotateX(90deg);
   }
 }
